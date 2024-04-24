@@ -1,10 +1,9 @@
 "use client";
-import { Button, Flex } from "@radix-ui/themes";
+import { Button, Flex, Spinner } from "@radix-ui/themes";
 import Link from "next/link";
 import React, { useState } from "react";
 import IssueStatusFilter from "./IssueStatusFilter";
 import { MdOutlineCreateNewFolder } from "react-icons/md";
-import Spinner from "@/app/components/Spinner";
 
 const IssueActions = (props: any) => {
   const [isSubmitting, setSubmitting] = useState(false);

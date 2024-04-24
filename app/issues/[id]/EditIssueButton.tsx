@@ -1,10 +1,9 @@
 "use client";
 import { Pencil2Icon } from "@radix-ui/react-icons";
-import { Button } from "@radix-ui/themes";
+import { Button, Spinner } from "@radix-ui/themes";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Spinner } from "@/app/components";
 
 const EditIssueButton = ({ issueId }: { issueId: number }) => {
   const [isSubmitting, setSubmitting] = useState(false);

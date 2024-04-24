@@ -1,11 +1,10 @@
 "use client";
-import { AlertDialog, Button, Flex } from "@radix-ui/themes";
+import { AlertDialog, Button, Flex, Spinner } from "@radix-ui/themes";
 import React, { useState } from "react";
 import { MdDeleteForever } from "react-icons/md";
 import deletingDocs from "@/utils/deleteDoc";
 import { useRouter } from "next/navigation";
 import toast, { Toaster } from "react-hot-toast";
-import Spinner from "@/app/components/Spinner";
 
 const DeleteButton = (props: any) => {
   const [error, setError] = useState(false);

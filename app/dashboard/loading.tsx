@@ -1,5 +1,5 @@
+import { Spinner } from "@radix-ui/themes";
 import React from "react";
-import Spinner from "../components/Spinner";
 
 const Loadingdashboard = () => {
   return (

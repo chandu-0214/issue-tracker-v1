@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import ErrorMessage from "@/app/components/ErrorMessage";
-import { Button, Callout, Flex, TextField } from "@radix-ui/themes";
+import { Button, Callout, Flex, Spinner, TextField } from "@radix-ui/themes";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
 import "easymde/dist/easymde.min.css";
 import { useForm, Controller } from "react-hook-form";
@@ -11,7 +11,6 @@ import { useRouter } from "next/navigation";
 import SimpleMdeReact from "react-simplemde-editor";
 import AssigneeSelect from "./AssigneeSelect";
 import StatusSelect from "./StatusChange";
-import Spinner from "@/app/components/Spinner";
 
 interface IssueForm {
   title: string;
