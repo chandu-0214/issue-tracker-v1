@@ -33,6 +33,20 @@ const NavBar = () => {
       const msg = await addUsersToFirebase(userObj);
     } catch (err) {}
   };
+  useEffect(() => {
+    const storedData = window.sessionStorage.getItem("guestDataID");
+    console.log(storedData);
+    if (storedData) {
+      const userObj: {} = {
+        uid: "guestuserlogin00112233",
+        displayName: "Guest User",
+        email: "guestuserlogin00112233@gmail.com",
+        photoURL: "",
+        timestamp: new Date(),
+      };
+      setuser(userObj);
+    }
+  }, []);
 
   useEffect(() => {
     const checkNavbar = () => {
@@ -45,8 +59,6 @@ const NavBar = () => {
   }, []);
 
   useEffect(() => {
-    const isMobile = window.innerWidth <= 768;
-
     if (user && !(user.uid === "guestuserlogin00112233")) {
       const userObj: {} = {
         uid: user.uid,
@@ -56,11 +68,12 @@ const NavBar = () => {
       };
       addUsers(userObj);
     }
+
     const timeoutId = setTimeout(() => {
       if (!user) {
         tailwindToast(
           "Use Guest Authentication",
-          "You're encountering an error with Google Provider(Firebase authentication). Please try logging in as a guest user."
+          "If you're encountering an error with Google Provider(Firebase authentication). Please try logging in as a guest user."
         );
       }
       if (user && !(user.uid === "guestuserlogin00112233")) {
@@ -89,6 +102,7 @@ const NavBar = () => {
     try {
       await signOut(firebaseAuth);
       if (user.uid === "guestuserlogin00112233") {
+        window.sessionStorage.removeItem("guestDataID");
         setuser("");
       }
       toast.success("Logout Successfully!");
@@ -100,8 +114,10 @@ const NavBar = () => {
       displayName: "Guest User",
       email: "guestuserlogin00112233@gmail.com",
       photoURL: "",
+      timestamp: new Date(),
     };
     await addUsers(userObj);
+    window.sessionStorage.setItem("guestDataID", "guestuserlogin00112233");
     setuser(userObj);
     toast.success("Login Successfully as guest!");
   };
@@ -127,7 +143,7 @@ const NavBar = () => {
             handleSign={handleSign}
             handleGuestUser={handleGuestUser}
           />
-          <Toaster position="top-center" reverseOrder={false} />
+          <Toaster position="bottom-right" reverseOrder={false} />
         </Flex>
       </Container>
     </motion.nav>
