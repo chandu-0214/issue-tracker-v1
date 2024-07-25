@@ -3,8 +3,8 @@ import { initializeApp, getApp, getApps } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASEAPIKEY,
-  authDomain: process.env.NEXT_PUBLIC_AUTHDOMAIN,
+  apiKey: process.env.NEXT_PUBLIC_FIREBASECHABI,
+  authDomain: process.env.NEXT_PUBLIC_DOMAIN,
   projectId: process.env.NEXT_PUBLIC_PROJECTID,
   storageBucket: process.env.NEXT_PUBLIC_STORAGEBUCKET,
   messagingSenderId: process.env.NEXT_PUBLIC_MEASUREMENTID,
