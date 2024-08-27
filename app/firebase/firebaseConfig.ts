@@ -15,4 +15,4 @@ const firebaseConfig = {
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 export const fireDB = getFirestore(app);
 export const firebaseAuth = getAuth(app);
-//modified on - 27-08-2024
+//modified on - 27-aug-2024
