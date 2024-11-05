@@ -63,7 +63,6 @@ const IssuesPage = async ({ searchParams }: any) => {
           isShowFilter={(allIssues.length || status) > 0 ? true : false}
         />
       }
-
       <IssueTable searchParams={searchParams} issues={filteredAndSortedData} />
       {filteredAndSortedData.length > 0 && (
         <Pagination
